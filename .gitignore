@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+frontend/frontend/node_modules/
+
+# environment variables (NEVER commit real secrets)
+.env
+.env.local
+.env.*.local
+
+# build output
+frontend/frontend/dist/
+dist/
+dist-ssr/
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# editor/OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.local
