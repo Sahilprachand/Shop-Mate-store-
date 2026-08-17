@@ -25,6 +25,14 @@ app.use(
 ); // helmet is a security middleware that helps you protect your app by setting various HTTP headers
 app.use(morgan("dev")); // log the requests
 
+// simple health-check route for uptime monitors and Render's own health
+// pings - placed BEFORE Arcjet on purpose, since automated health checks
+// don't look like normal browser traffic and would otherwise get flagged
+// as bot traffic and blocked with a 403
+app.get("/", (req, res) => {
+  res.status(200).send("Shop Mate API is running");
+});
+
 // apply arcjet rate-limit to all routes
 app.use(async (req, res, next) => {
   try {
